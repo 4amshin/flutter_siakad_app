@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_siakad_app/common/constants/colors.dart';
+import 'package:flutter_siakad_app/common/constants/custom_navigation.dart';
 import 'package:flutter_siakad_app/common/constants/icons.dart';
 import 'package:flutter_siakad_app/common/widgets/svg_icon.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/pages/scanner_page.dart';
 
 class ApScanButton extends StatelessWidget {
   const ApScanButton({Key? key}) : super(key: key);
@@ -9,7 +11,7 @@ class ApScanButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () => Navigate.push(const ScannerPage()),
       style: ElevatedButton.styleFrom(
         backgroundColor: ColorName.primary,
         padding: const EdgeInsets.all(20),
