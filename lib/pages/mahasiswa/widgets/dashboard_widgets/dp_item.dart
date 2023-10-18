@@ -44,7 +44,7 @@ class DpItem extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: onPressed,
                       child: Text(
                         "Lihat",
                         style: TextStyle(

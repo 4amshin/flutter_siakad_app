@@ -4,6 +4,8 @@ class IconName {
   static const String profile = 'assets/icons/profile.svg';
   static const String notification = 'assets/icons/notification.svg';
   static const String search = 'assets/icons/search.svg';
+  static const String scan = 'assets/icons/scan.svg';
+  static const String filter = 'assets/icons/filter.svg';
 
   //profile page icons
   static const String editProfile = 'assets/icons/edit-profile.svg';

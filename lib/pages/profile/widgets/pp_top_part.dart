@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_siakad_app/common/constants/colors.dart';
 import 'package:flutter_siakad_app/common/constants/images.dart';
+import 'package:flutter_siakad_app/common/widgets/profile_picture.dart';
 
 class PpTopPart extends StatelessWidget {
   final String role;
@@ -18,16 +19,9 @@ class PpTopPart extends StatelessWidget {
         const SizedBox(
           height: 40.0,
         ),
-        Container(
-          height: 100,
-          width: 100,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage(Images.profileImg),
-              fit: BoxFit.contain,
-            ),
-          ),
+        const ProfilePicture(
+          imgUrl: Images.profileImg,
+          size: 100,
         ),
         const SizedBox(height: 10),
         const Text(

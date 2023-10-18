@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_siakad_app/bloc/bloc/logout_bloc.dart';
+import 'package:flutter_siakad_app/bloc/logout/logout_bloc.dart';
 import 'package:flutter_siakad_app/common/constants/custom_navigation.dart';
 import 'package:flutter_siakad_app/common/widgets/buttons.dart';
 import 'package:flutter_siakad_app/common/widgets/pop_up_message.dart';

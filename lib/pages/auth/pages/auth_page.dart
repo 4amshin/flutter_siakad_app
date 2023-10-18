@@ -3,33 +3,10 @@ import 'package:flutter_siakad_app/pages/auth/widgets/auth/ap_login_button.dart'
 import 'package:flutter_siakad_app/pages/auth/widgets/auth/ap_middle_content.dart';
 import 'package:flutter_siakad_app/pages/auth/widgets/auth/ap_terms.dart';
 
-class AuthPage extends StatefulWidget {
+class AuthPage extends StatelessWidget {
   const AuthPage({Key? key}) : super(key: key);
 
-  @override
-  State<AuthPage> createState() => _AuthPageState();
-}
-
-class _AuthPageState extends State<AuthPage> {
   //check if user already login
-  // Future<void> authCheck() async {
-  //   final isLogin = await AuthLocalDataSources().isLogin();
-  //   if (isLogin) {
-  //     Navigator.pushReplacement(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (context) => const MahasiswaPage(),
-  //       ),
-  //     );
-  //   }
-  // }
-
-  // @override
-  // void initState() {
-  //   authCheck();
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

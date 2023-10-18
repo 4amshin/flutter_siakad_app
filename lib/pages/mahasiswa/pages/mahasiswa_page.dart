@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_siakad_app/common/constants/colors.dart';
 import 'package:flutter_siakad_app/common/constants/icons.dart';
-import 'package:flutter_siakad_app/common/widgets/svg_icons.dart';
+import 'package:flutter_siakad_app/common/widgets/svg_icon.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/pages/dashboard_page.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/pages/jadwal_mk_page.dart';
 import 'package:flutter_siakad_app/pages/profile/profile_page.dart';
 
 class MahasiswaPage extends StatefulWidget {
@@ -23,9 +24,7 @@ class _MahasiswaPageState extends State<MahasiswaPage> {
 
   final List<Widget> _pages = const [
     DashboardPage(),
-    Center(
-      child: Text('Schedule'),
-    ),
+    JadwalMkPage(),
     ProfilePage(role: 'Mahasiswa'),
   ];
 

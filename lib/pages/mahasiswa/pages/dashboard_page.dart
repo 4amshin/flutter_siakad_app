@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_siakad_app/pages/mahasiswa/widgets/dashboard_page/dp_item_list.dart';
-import 'package:flutter_siakad_app/pages/mahasiswa/widgets/dashboard_page/dp_search_field.dart';
-import 'package:flutter_siakad_app/pages/mahasiswa/widgets/dashboard_page/dp_title.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/widgets/dashboard_widgets/dp_item_list.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/widgets/dashboard_widgets/dp_search_field.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/widgets/dashboard_widgets/dp_title.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);

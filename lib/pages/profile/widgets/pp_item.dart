@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_siakad_app/common/constants/colors.dart';
-import 'package:flutter_siakad_app/common/widgets/svg_icons.dart';
+import 'package:flutter_siakad_app/common/widgets/svg_icon.dart';
 
 class PpItem extends StatelessWidget {
   final String iconUrl;

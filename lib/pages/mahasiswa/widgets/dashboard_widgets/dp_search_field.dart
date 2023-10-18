@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_siakad_app/common/constants/icons.dart';
-import 'package:flutter_siakad_app/common/widgets/svg_icons.dart';
+import 'package:flutter_siakad_app/common/widgets/svg_icon.dart';
 
 class DpSearchField extends StatelessWidget {
   final TextEditingController controller;
