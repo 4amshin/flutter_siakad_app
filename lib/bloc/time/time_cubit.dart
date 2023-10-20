@@ -9,7 +9,7 @@ class TimeCubit extends Cubit<DateTime> {
   }
 
   void _startClock() {
-    final _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       emit(DateTime.now());
     });
   }

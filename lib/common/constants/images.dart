@@ -12,4 +12,5 @@ class Images {
   static const String map = 'assets/images/maps.png';
 
   static const String profileImg = 'assets/images/profile.jpg';
+  static const String noData = 'assets/images/no-data.svg';
 }

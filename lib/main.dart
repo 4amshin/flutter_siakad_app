@@ -32,18 +32,18 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: MahasiswaPage(),
+      // home: AuthPage(),
       // home: AbsensiPage(),
-      // home: FutureBuilder(
-      //   future: AuthLocalDataSources().isLogin(),
-      //   builder: (context, snapshot) {
-      //     if (snapshot.hasData && snapshot.data!) {
-      //       return const MahasiswaPage();
-      //     } else {
-      //       return const AuthPage();
-      //     }
-      //   },
-      // ),
+      home: FutureBuilder(
+        future: AuthLocalDataSources().isLogin(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData && snapshot.data!) {
+            return const MahasiswaPage();
+          } else {
+            return const AuthPage();
+          }
+        },
+      ),
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_siakad_app/bloc/khs/khs_bloc.dart';
 import 'package:flutter_siakad_app/common/constants/custom_navigation.dart';
 import 'package:flutter_siakad_app/common/constants/images.dart';
+import 'package:flutter_siakad_app/data/data_sources/khs_remote_data_source.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/pages/jadwal_mk_page.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/pages/khs_page.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/pages/nilai_mk_page.dart';
@@ -13,11 +16,14 @@ class DpItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DpItem(
-          onPressed: () => Navigate.push(const KhsPage()),
-          label: 'Kartu Hasil Studi',
-          backgroundColor: const Color(0xff686BFF),
-          imagePath: Images.khs,
+        BlocProvider(
+          create: (context) => KhsBloc(KhsRemoteDataSource()),
+          child: DpItem(
+            onPressed: () => Navigate.push(const KhsPage()),
+            label: 'Kartu Hasil Studi',
+            backgroundColor: const Color(0xff686BFF),
+            imagePath: Images.khs,
+          ),
         ),
         const SizedBox(height: 25),
         DpItem(

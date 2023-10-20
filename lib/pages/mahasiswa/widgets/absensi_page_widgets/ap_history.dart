@@ -25,13 +25,32 @@ class ApHistory extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Riwayat Absensi",
-              style: TextStyle(
-                fontSize: 15.0,
-                color: ColorName.primary,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Riwayat Absensi",
+                  style: TextStyle(
+                    fontSize: 15.0,
+                    color: ColorName.primary,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {},
+                  child: const Text(
+                    "Show All",
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: ColorName.primary,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ],
             ),
             const Divider(),
             Expanded(
