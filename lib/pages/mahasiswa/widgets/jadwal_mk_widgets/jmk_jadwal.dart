@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_siakad_app/common/constants/colors.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/widgets/jadwal_mk_widgets/jmk_vertical_divider.dart';
 
 class JmkJadwal extends StatelessWidget {
   final String jamMulai;
@@ -23,41 +24,28 @@ class JmkJadwal extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          children: [
-            Text(
-              jamMulai,
-              style: const TextStyle(
-                fontSize: 13.0,
+        SizedBox(
+          width: 65,
+          child: Column(
+            children: [
+              Text(
+                jamMulai,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
               ),
-            ),
-            Text(
-              jamSelesai,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
+              Text(
+                jamSelesai,
+                style: const TextStyle(
+                  fontSize: 11,
+                  color: Colors.grey,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-        const SizedBox(width: 10),
-        Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 120,
-              child: VerticalDivider(
-                color: Colors.grey.withOpacity(0.5),
-                width: 2,
-                thickness: 2,
-              ),
-            ),
-            const CircleAvatar(
-              radius: 3,
-              backgroundColor: Colors.grey,
-            ),
-          ],
-        ),
+        const SizedBox(width: 15),
+        const JmkVerticalDivider(),
         const SizedBox(width: 10),
         SizedBox(
           height: 80,

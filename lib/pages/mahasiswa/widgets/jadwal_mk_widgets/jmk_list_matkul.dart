@@ -1,53 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_siakad_app/bloc/schedules/schedules_bloc.dart';
 import 'package:flutter_siakad_app/common/constants/images.dart';
+import 'package:flutter_siakad_app/pages/mahasiswa/widgets/jadwal_mk_widgets/jmk_matkul_item.dart';
 
-class JmkListMatkul extends StatelessWidget {
+class JmkListMatkul extends StatefulWidget {
   const JmkListMatkul({Key? key}) : super(key: key);
+
+  @override
+  State<JmkListMatkul> createState() => _JmkListMatkulState();
+}
+
+class _JmkListMatkulState extends State<JmkListMatkul> {
+  @override
+  void initState() {
+    context.read<SchedulesBloc>().add(const SchedulesEvent.getSchedules());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 170,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return Container(
-            width: 110,
-            padding: const EdgeInsets.only(bottom: 15),
-            margin: const EdgeInsets.only(
-              left: 20,
-              top: 20,
-              bottom: 20,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.purple,
-              image: const DecorationImage(
-                image: AssetImage(Images.rpl),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(25),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  offset: const Offset(5, 5),
-                  blurRadius: 5,
-                )
-              ],
-            ),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                "Basis Data",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
+      child: BlocBuilder<SchedulesBloc, SchedulesState>(
+        builder: (context, state) {
+          return state.maybeWhen(
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (message) => Center(child: Text(message)),
+            loaded: (schedules) {
+              return ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: schedules.length,
+                itemBuilder: (context, index) {
+                  final schedule = schedules[index];
+                  return JmkMatkulItem(
+                    matkul: schedule.subject.title,
+                    matkulImg: Images.basisData,
+                  );
+                },
+              );
+            },
+            orElse: () => const Center(child: Text('No Data')),
           );
         },
       ),
