@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class ScheduleResponseModel {
-  final List<Schedule> data;
+  final List<Jadwal> data;
 
   ScheduleResponseModel({
     required this.data,
@@ -14,7 +14,7 @@ class ScheduleResponseModel {
 
   factory ScheduleResponseModel.fromMap(Map<String, dynamic> json) =>
       ScheduleResponseModel(
-        data: List<Schedule>.from(json["data"].map((x) => Schedule.fromMap(x))),
+        data: List<Jadwal>.from(json["data"].map((x) => Jadwal.fromMap(x))),
       );
 
   Map<String, dynamic> toMap() => {
@@ -22,10 +22,53 @@ class ScheduleResponseModel {
       };
 }
 
+class Jadwal {
+  final int id;
+  final int scheduleId;
+  final int studentId;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final Schedule schedule;
+  final Student student;
+
+  Jadwal({
+    required this.id,
+    required this.scheduleId,
+    required this.studentId,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.schedule,
+    required this.student,
+  });
+
+  factory Jadwal.fromJson(String str) => Jadwal.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Jadwal.fromMap(Map<String, dynamic> json) => Jadwal(
+        id: json["id"],
+        scheduleId: json["schedule_id"],
+        studentId: json["student_id"],
+        createdAt: DateTime.parse(json["created_at"]),
+        updatedAt: DateTime.parse(json["updated_at"]),
+        schedule: Schedule.fromMap(json["schedule"]),
+        student: Student.fromMap(json["student"]),
+      );
+
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "schedule_id": scheduleId,
+        "student_id": studentId,
+        "created_at": createdAt.toIso8601String(),
+        "updated_at": updatedAt.toIso8601String(),
+        "schedule": schedule.toMap(),
+        "student": student.toMap(),
+      };
+}
+
 class Schedule {
   final int id;
   final int subjectId;
-  final int studentId;
   final String hari;
   final String jamMulai;
   final String jamSelesai;
@@ -39,12 +82,10 @@ class Schedule {
   final DateTime createdAt;
   final DateTime updatedAt;
   final Subject subject;
-  final Student student;
 
   Schedule({
     required this.id,
     required this.subjectId,
-    required this.studentId,
     required this.hari,
     required this.jamMulai,
     required this.jamSelesai,
@@ -58,7 +99,6 @@ class Schedule {
     required this.createdAt,
     required this.updatedAt,
     required this.subject,
-    required this.student,
   });
 
   factory Schedule.fromJson(String str) => Schedule.fromMap(json.decode(str));
@@ -68,7 +108,6 @@ class Schedule {
   factory Schedule.fromMap(Map<String, dynamic> json) => Schedule(
         id: json["id"],
         subjectId: json["subject_id"],
-        studentId: json["student_id"],
         hari: json["hari"],
         jamMulai: json["jam_mulai"],
         jamSelesai: json["jam_selesai"],
@@ -82,13 +121,11 @@ class Schedule {
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         subject: Subject.fromMap(json["subject"]),
-        student: Student.fromMap(json["student"]),
       );
 
   Map<String, dynamic> toMap() => {
         "id": id,
         "subject_id": subjectId,
-        "student_id": studentId,
         "hari": hari,
         "jam_mulai": jamMulai,
         "jam_selesai": jamSelesai,
@@ -102,7 +139,66 @@ class Schedule {
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
         "subject": subject.toMap(),
-        "student": student.toMap(),
+      };
+}
+
+class Subject {
+  final int id;
+  final int dosenId;
+  final String title;
+  final String semester;
+  final String tahunAkademik;
+  final int sks;
+  final String kodeMatkul;
+  final String deskripsi;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final Student dosen;
+
+  Subject({
+    required this.id,
+    required this.dosenId,
+    required this.title,
+    required this.semester,
+    required this.tahunAkademik,
+    required this.sks,
+    required this.kodeMatkul,
+    required this.deskripsi,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.dosen,
+  });
+
+  factory Subject.fromJson(String str) => Subject.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Subject.fromMap(Map<String, dynamic> json) => Subject(
+        id: json["id"],
+        dosenId: json["dosen_id"],
+        title: json["title"],
+        semester: json["semester"],
+        tahunAkademik: json["tahun_akademik"],
+        sks: json["sks"],
+        kodeMatkul: json["kode_matkul"],
+        deskripsi: json["deskripsi"],
+        createdAt: DateTime.parse(json["created_at"]),
+        updatedAt: DateTime.parse(json["updated_at"]),
+        dosen: Student.fromMap(json["dosen"]),
+      );
+
+  Map<String, dynamic> toMap() => {
+        "id": id,
+        "dosen_id": dosenId,
+        "title": title,
+        "semester": semester,
+        "tahun_akademik": tahunAkademik,
+        "sks": sks,
+        "kode_matkul": kodeMatkul,
+        "deskripsi": deskripsi,
+        "created_at": createdAt.toIso8601String(),
+        "updated_at": updatedAt.toIso8601String(),
+        "dosen": dosen.toMap(),
       };
 }
 
@@ -167,65 +263,5 @@ class Student {
         "two_factor_confirmed_at": twoFactorConfirmedAt,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
-      };
-}
-
-class Subject {
-  final int id;
-  final int dosenId;
-  final String title;
-  final String semester;
-  final String tahunAkademik;
-  final int sks;
-  final String kodeMatkul;
-  final String deskripsi;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final Student dosen;
-
-  Subject({
-    required this.id,
-    required this.dosenId,
-    required this.title,
-    required this.semester,
-    required this.tahunAkademik,
-    required this.sks,
-    required this.kodeMatkul,
-    required this.deskripsi,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.dosen,
-  });
-
-  factory Subject.fromJson(String str) => Subject.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory Subject.fromMap(Map<String, dynamic> json) => Subject(
-        id: json["id"],
-        dosenId: json["dosen_id"],
-        title: json["title"],
-        semester: json["semester"],
-        tahunAkademik: json["tahun_akademik"],
-        sks: json["sks"],
-        kodeMatkul: json["kode_matkul"],
-        deskripsi: json["deskripsi"],
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
-        dosen: Student.fromMap(json["dosen"]),
-      );
-
-  Map<String, dynamic> toMap() => {
-        "id": id,
-        "dosen_id": dosenId,
-        "title": title,
-        "semester": semester,
-        "tahun_akademik": tahunAkademik,
-        "sks": sks,
-        "kode_matkul": kodeMatkul,
-        "deskripsi": deskripsi,
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
-        "dosen": dosen.toMap(),
       };
 }

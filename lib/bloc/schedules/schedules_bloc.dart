@@ -21,7 +21,7 @@ class SchedulesBloc extends Bloc<SchedulesEvent, SchedulesState> {
     final result = await dataSource.getSchedule();
     result.fold(
       (error) => emit(_Error(message: error)),
-      (schedules) => emit(_Loaded(schedule: schedules.data)),
+      (jadwal) => emit(_Loaded(jadwal: jadwal.data)),
     );
   }
 }

@@ -5,7 +5,6 @@ import 'package:flutter_siakad_app/common/constants/icons.dart';
 import 'package:flutter_siakad_app/common/widgets/simple_app_bar.dart';
 import 'package:flutter_siakad_app/common/widgets/svg_icon_button.dart';
 import 'package:flutter_siakad_app/data/data_sources/schedule_remote_data_source.dart';
-import 'package:flutter_siakad_app/pages/mahasiswa/widgets/jadwal_mk_widgets/jmk_jadwal.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/widgets/jadwal_mk_widgets/jmk_list_jadwal.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/widgets/jadwal_mk_widgets/jmk_list_matkul.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/widgets/jadwal_mk_widgets/jmk_time.dart';
@@ -29,11 +28,11 @@ class JadwalMkPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => SchedulesBloc(ScheduleRemoteDataSource()),
-        child: Column(
+        child: const Column(
           children: [
-            const JmkListMatkul(),
-            const JmkTime(time: 'Selasa, 24 Juli 2023'),
-            const JmkListJadwal(),
+            JmkListMatkul(),
+            JmkTime(time: 'Selasa, 24 Juli 2023'),
+            JmkListJadwal(),
           ],
         ),
       ),

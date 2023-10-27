@@ -71,7 +71,7 @@ class _KhsListMatkulState extends State<KhsListMatkul> {
                   ),
                   KhsSubTitle(
                     leftText: 'IPK Semester',
-                    rightText: ipk.toString(),
+                    rightText: ipk.toStringAsFixed(2),
                   ),
                 ],
               );

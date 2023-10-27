@@ -4,7 +4,6 @@ import 'package:flutter_siakad_app/common/constants/custom_navigation.dart';
 import 'package:flutter_siakad_app/common/constants/screen_util.dart';
 import 'package:flutter_siakad_app/data/data_sources/auth_local_data_sources.dart';
 import 'package:flutter_siakad_app/pages/auth/pages/auth_page.dart';
-import 'package:flutter_siakad_app/pages/mahasiswa/pages/absensi_page.dart';
 import 'package:flutter_siakad_app/pages/mahasiswa/pages/mahasiswa_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,7 +32,6 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       // home: AuthPage(),
-      // home: AbsensiPage(),
       home: FutureBuilder(
         future: AuthLocalDataSources().isLogin(),
         builder: (context, snapshot) {

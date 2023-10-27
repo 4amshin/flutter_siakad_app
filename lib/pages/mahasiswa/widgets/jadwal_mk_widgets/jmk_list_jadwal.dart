@@ -30,17 +30,17 @@ class _JmkListJadwalState extends State<JmkListJadwal> {
             return state.maybeWhen(
               loading: () => const Center(child: CircularProgressIndicator()),
               error: (message) => Center(child: Text(message)),
-              loaded: (schedules) {
+              loaded: (jadwal) {
                 return ListView.builder(
                   physics: const BouncingScrollPhysics(),
-                  itemCount: schedules.length,
+                  itemCount: jadwal.length,
                   itemBuilder: (context, index) {
-                    final schedule = schedules[index];
+                    final data = jadwal[index];
                     return JmkJadwal(
-                      jamMulai: schedule.jamMulai,
-                      jamSelesai: schedule.jamSelesai,
-                      matkul: schedule.subject.title,
-                      dosen: schedule.subject.dosen.name,
+                      jamMulai: data.schedule.jamMulai,
+                      jamSelesai: data.schedule.jamSelesai,
+                      matkul: data.schedule.subject.title,
+                      dosen: data.schedule.subject.dosen.name,
                       status: "Luring",
                     );
                   },

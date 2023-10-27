@@ -284,7 +284,7 @@ mixin _$SchedulesState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Schedule> schedule) loaded,
+    required TResult Function(List<Jadwal> jadwal) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -292,7 +292,7 @@ mixin _$SchedulesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Schedule> schedule)? loaded,
+    TResult? Function(List<Jadwal> jadwal)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -300,7 +300,7 @@ mixin _$SchedulesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Schedule> schedule)? loaded,
+    TResult Function(List<Jadwal> jadwal)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -390,7 +390,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Schedule> schedule) loaded,
+    required TResult Function(List<Jadwal> jadwal) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -401,7 +401,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Schedule> schedule)? loaded,
+    TResult? Function(List<Jadwal> jadwal)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -412,7 +412,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Schedule> schedule)? loaded,
+    TResult Function(List<Jadwal> jadwal)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -504,7 +504,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Schedule> schedule) loaded,
+    required TResult Function(List<Jadwal> jadwal) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -515,7 +515,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Schedule> schedule)? loaded,
+    TResult? Function(List<Jadwal> jadwal)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -526,7 +526,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Schedule> schedule)? loaded,
+    TResult Function(List<Jadwal> jadwal)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -584,7 +584,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Schedule> schedule});
+  $Res call({List<Jadwal> jadwal});
 }
 
 /// @nodoc
@@ -598,13 +598,13 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? schedule = null,
+    Object? jadwal = null,
   }) {
     return _then(_$LoadedImpl(
-      schedule: null == schedule
-          ? _value._schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as List<Schedule>,
+      jadwal: null == jadwal
+          ? _value._jadwal
+          : jadwal // ignore: cast_nullable_to_non_nullable
+              as List<Jadwal>,
     ));
   }
 }
@@ -612,20 +612,19 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl({required final List<Schedule> schedule})
-      : _schedule = schedule;
+  const _$LoadedImpl({required final List<Jadwal> jadwal}) : _jadwal = jadwal;
 
-  final List<Schedule> _schedule;
+  final List<Jadwal> _jadwal;
   @override
-  List<Schedule> get schedule {
-    if (_schedule is EqualUnmodifiableListView) return _schedule;
+  List<Jadwal> get jadwal {
+    if (_jadwal is EqualUnmodifiableListView) return _jadwal;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_schedule);
+    return EqualUnmodifiableListView(_jadwal);
   }
 
   @override
   String toString() {
-    return 'SchedulesState.loaded(schedule: $schedule)';
+    return 'SchedulesState.loaded(jadwal: $jadwal)';
   }
 
   @override
@@ -633,12 +632,12 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            const DeepCollectionEquality().equals(other._schedule, _schedule));
+            const DeepCollectionEquality().equals(other._jadwal, _jadwal));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_schedule));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_jadwal));
 
   @JsonKey(ignore: true)
   @override
@@ -651,10 +650,10 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Schedule> schedule) loaded,
+    required TResult Function(List<Jadwal> jadwal) loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(schedule);
+    return loaded(jadwal);
   }
 
   @override
@@ -662,10 +661,10 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Schedule> schedule)? loaded,
+    TResult? Function(List<Jadwal> jadwal)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(schedule);
+    return loaded?.call(jadwal);
   }
 
   @override
@@ -673,12 +672,12 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Schedule> schedule)? loaded,
+    TResult Function(List<Jadwal> jadwal)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(schedule);
+      return loaded(jadwal);
     }
     return orElse();
   }
@@ -722,10 +721,9 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements SchedulesState {
-  const factory _Loaded({required final List<Schedule> schedule}) =
-      _$LoadedImpl;
+  const factory _Loaded({required final List<Jadwal> jadwal}) = _$LoadedImpl;
 
-  List<Schedule> get schedule;
+  List<Jadwal> get jadwal;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -797,7 +795,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Schedule> schedule) loaded,
+    required TResult Function(List<Jadwal> jadwal) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -808,7 +806,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Schedule> schedule)? loaded,
+    TResult? Function(List<Jadwal> jadwal)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -819,7 +817,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Schedule> schedule)? loaded,
+    TResult Function(List<Jadwal> jadwal)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

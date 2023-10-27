@@ -27,15 +27,15 @@ class _JmkListMatkulState extends State<JmkListMatkul> {
           return state.maybeWhen(
             loading: () => const Center(child: CircularProgressIndicator()),
             error: (message) => Center(child: Text(message)),
-            loaded: (schedules) {
+            loaded: (jadwal) {
               return ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemCount: schedules.length,
+                itemCount: jadwal.length,
                 itemBuilder: (context, index) {
-                  final schedule = schedules[index];
+                  final data = jadwal[index];
                   return JmkMatkulItem(
-                    matkul: schedule.subject.title,
+                    matkul: data.schedule.subject.title,
                     matkulImg: Images.basisData,
                   );
                 },
